@@ -1,0 +1,15 @@
+name: Custom Action Execution Workflow
+
+on: [push]
+
+jobs:
+  run-custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Local Custom Action
+        uses: ./.github/actions/custom-greeting
+        with:
+          who-to-greet: 'Haseeb55859'
