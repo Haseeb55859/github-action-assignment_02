@@ -9,11 +9,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node with Built-in Caching
-        uses: actions/setup-node@v4
+      - name: Cache NPM Dependencies
+        uses: actions/cache@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-cache
 
       - name: Install Package
         run: npm install lodash
