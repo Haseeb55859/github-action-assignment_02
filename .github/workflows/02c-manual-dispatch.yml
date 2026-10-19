@@ -1,0 +1,22 @@
+name: Manual Workflow Dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      student_name:
+        description: 'Student Name'
+        required: true
+        default: 'DevOps Student'
+      environment:
+        type: choice
+        description: 'Deployment Environment'
+        options:
+          - Staging
+          - Production
+jobs:
+  manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Manual Inputs
+        run: |
+          echo "Triggered by: ${{ inputs.student_name }}"
+          echo "Environment: ${{ inputs.environment }}"
