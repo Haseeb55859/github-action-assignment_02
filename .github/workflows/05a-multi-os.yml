@@ -1,0 +1,17 @@
+name: Multi-OS GitHub Runners
+
+on: [push]
+
+jobs:
+  windows-build:
+    runs-on: windows-latest
+    steps:
+      - name: Execute PowerShell Command
+        shell: powershell
+        run: Get-ComputerInfo | Select-Object OsName, OsVersion
+
+  macos-build:
+    runs-on: macos-latest
+    steps:
+      - name: Verify Swift Toolchain
+        run: swift --version
