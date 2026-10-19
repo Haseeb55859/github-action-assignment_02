@@ -1,0 +1,19 @@
+name: Dependency Caching Workflow
+
+on: [push]
+
+jobs:
+  cache-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node with Built-in Caching
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Package
+        run: npm install lodash
