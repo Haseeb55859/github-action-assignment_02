@@ -1,1 +1,9 @@
-
+name: 'Custom Greeting Action'
+description: 'Outputs custom greeting'
+inputs:
+  who-to-greet:
+    required: true
+    default: 'GitHub Certified Evaluator'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
